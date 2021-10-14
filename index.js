@@ -52,6 +52,14 @@ var date1
 
 users.push(user1, user2);
 
+//get query string
+const urlSearchParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlSearchParams.entries());
+
+//assigns and converts from string into varaible that matches the already declared variable
+var currUser = eval(params['user']);
+
+
 // console.log(users, 'print user array to see if this adding of objects works')
 // correctly added
 
@@ -82,33 +90,33 @@ var container = document.getElementById('container');
 
 var headNameTweets = document.createElement('section');
 headNameTweets.innerHTML = `
-    <h4>${user1.displayName} ✔️</h4>
-    <h6>${user1.tweets.length} Tweets</h6>
+    <h4>${currUser.displayName} ✔️</h4>
+    <h6>${currUser.tweets.length} Tweets</h6>
 `;
 head.appendChild(headNameTweets);
 
-document.getElementById('banner').style.cssText = `background: url("${user1.coverPhotoURL}");`;
-document.getElementById('profile-image').setAttribute('src', `${user1.avatarURL}`);
+document.getElementById('banner').style.cssText = `background: url("${currUser.coverPhotoURL}");`;
+document.getElementById('profile-image').setAttribute('src', `${currUser.avatarURL}`);
 
 document.getElementById('text-portion-prof').innerHTML = `
-                <h2>${user1.displayName} </h2>
-                <h5>${user1.userName}</h5>
-                <h5>📅 Joined ${user1.joinedDate}</h5>
+                <h2>${currUser.displayName} </h2>
+                <h5>${currUser.userName}</h5>
+                <h5>📅 Joined ${currUser.joinedDate}</h5>
             `;
 
-var currTweets = user1.tweets
+var currTweets = currUser.tweets
 
 for (const currTweet of currTweets) {
     // console.log(currTweet.text);
     let tweetCode = document.createElement('section');
     tweetCode.setAttribute('class', 'indiv-tweets')
     tweetCode.innerHTML = `
-        <img id="profile-image" src="${user1.avatarURL}" alt="profile image">
+        <img id="profile-image" src="${currUser.avatarURL}" alt="profile image">
         <section class="text-of-tweet">
             <span>
-                <h4>${user1.displayName} ✔️</h4>  <h5> </h5> <span>...</span>
+                <h4>${currUser.displayName} ✔️</h4>  <h5> </h5> <span>...</span>
             </span>
-            <h6> ${user1.userName}</h6>
+            <h6> ${currUser.userName}</h6>
             <p>${currTweet.text}</p>
             <span>
                 <p> 💬 5.5k </p>
