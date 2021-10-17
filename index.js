@@ -96,12 +96,7 @@ var userss = {
 };
 
 
-
-var users = [];
-
 var date1
-
-users.push(user1, user2);
 
 //get query string
 const urlSearchParams = new URLSearchParams(window.location.search);
