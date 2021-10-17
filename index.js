@@ -166,9 +166,9 @@ for (const currTweet of currTweets) {
         <img id="profile-image" src="${currUser.avatarURL}" alt="profile image">
         <section class="text-of-tweet">
             <span>
-                <h4>${currUser.displayName} ✔️</h4>  <h5> </h5> <span>...</span>
+                <span> <h4>${currUser.displayName} ✔️</h4> <h6>${currUser.userName}</h6><h5> </h5> </span> <span>...</span>
             </span>
-            <h6> ${currUser.userName}</h6>
+
             <p>${currTweet.text}</p>
             <span>
                 <p> 💬 5.5k </p>

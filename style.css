@@ -91,6 +91,7 @@ header {
 
 #text-portion-prof > span, #text-portion-prof > span > h4 {
     display: inline;
+    font-size: 14px;
 }
 
 #text-portion-prof > span {
@@ -149,9 +150,18 @@ p.tab-active {
     width: 100%;
 }
 
+.text-of-tweet > span:nth-of-type(1), .text-of-tweet > span:nth-of-type(1) > span > h6:nth-of-type(1) ,.text-of-tweet > span:nth-of-type(1) > span > h5:nth-of-type(1),.text-of-tweet > span:nth-of-type(1) > span > h4:nth-of-type(1) {
+    display: inline;
+    margin: auto 0;
+}
+
 .text-of-tweet > span:nth-of-type(1) {
     display: flex;
     justify-content: space-between;
+}
+
+.text-of-tweet > span:nth-of-type(1) > h6:nth-of-type(1) {
+    align-self: flex-start;
 }
 
 .text-of-tweet > span > span , .text-of-tweet > span > h4  {
