@@ -110,6 +110,8 @@ const params = Object.fromEntries(urlSearchParams.entries());
 //assigns and converts from string into varaible that matches the already declared variable
 var currUser = eval(params['user']);
 
+var currObj = userss[currUser];
+console.log(currObj);
 
 // console.log(users, 'print user array to see if this adding of objects works')
 // correctly added
@@ -150,7 +152,7 @@ document.getElementById('banner').style.cssText = `background: url("${currUser.c
 document.getElementById('profile-image').setAttribute('src', `${currUser.avatarURL}`);
 
 document.getElementById('text-portion-prof').innerHTML = `
-                <h2>${currUser.displayName} </h2>
+                <h2>${currUser.displayName} ✔️</h2>
                 <h5>${currUser.userName}</h5>
                 <h5>📅 Joined ${currUser.joinedDate}</h5>
                 <span><h4>${currUser.followingCount.toLocaleString("en-US")}</h4> following <h4>${currUser.followerCount.toLocaleString("en-US")}</h4> followers </span>
