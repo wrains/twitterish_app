@@ -153,6 +153,7 @@ document.getElementById('text-portion-prof').innerHTML = `
                 <h2>${currUser.displayName} </h2>
                 <h5>${currUser.userName}</h5>
                 <h5>📅 Joined ${currUser.joinedDate}</h5>
+                <span><h4>${currUser.followingCount.toLocaleString("en-US")}</h4> following <h4>${currUser.followerCount.toLocaleString("en-US")}</h4> followers </span>
             `;
 
 var currTweets = currUser.tweets
