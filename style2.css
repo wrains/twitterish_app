@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #f2f7f5;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+header > p {
+    width: 25%;
+    padding: 15px 25px;
+    color: #616161;
+    font-weight: 600;
+    border-bottom: 2px solid #cecece;
+    text-align: center;
+    font-size: .75em !important;
+    margin: 0;
+}
+
+
+header > p:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+p.tab-active {
+    color: #1D9BF0 !important;
+    border-bottom: 2px solid #1D9BF0 !important;
+}
+
+.indiv-tweets {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #d1d1d1;
+    padding: 10px;
+}
+
+.indiv-tweets > img {
+    width: 60px;
+    height: auto;
+    border-radius: 100%;
+    align-self: flex-start;
+    margin: 0 10px 0 0;
+}
+
+.text-of-tweet {
+    width: 100%;
+}
+
+.text-of-tweet > span:nth-of-type(1), .text-of-tweet > span:nth-of-type(1) > span > h6:nth-of-type(1) ,.text-of-tweet > span:nth-of-type(1) > span > h5:nth-of-type(1),.text-of-tweet > span:nth-of-type(1) > span > h4:nth-of-type(1) {
+    display: inline;
+    margin: auto 0;
+}
+
+.text-of-tweet > span:nth-of-type(1) {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-of-tweet > span:nth-of-type(1) > h6:nth-of-type(1) {
+    align-self: flex-start;
+}
+
+.text-of-tweet > span > span , .text-of-tweet > span > h4  {
+    display: inline;
+}
+
+.text-of-tweet > span > span {
+    text-align: right;
+}
+
+.text-of-tweet > span:nth-of-type(2) {
+    display: flex;
+    justify-content: space-around;
+}
+
+.text-of-tweet > p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.text-of-tweet > span > p {
+    display: inline;
+    font-size: 14px;
+    color: #7c7c7c;
+}

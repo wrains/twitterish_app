@@ -68,7 +68,7 @@ var userss = {
                 text: 'Out on launch pad, engine swap underway',
                 timestamp: '2/09/2021 12:11:51'
             }
-        ]
+        ],
     },
     user2: {
         userName: '@BillGates',
@@ -91,7 +91,7 @@ var userss = {
                 text: 'In 2020, I read a book every hour.',
                 timestamp: '2/09/2021 12:11:51'
             }
-        ]
+        ],
     }
 };
 
