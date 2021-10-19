@@ -48,63 +48,103 @@ var user2 = {
 
 
 //make this to be more dynamic with nested for loops
-for (let tweet of user1.tweets) {
-    tweet["user"] = 'user1';
-}
-for (let tweet of user2.tweets) {
-    tweet["user"] = 'user2';
-}
+
+// for (let tweet of user2.tweets) {
+//     tweet["user"] = 'user2';
+//     tweet.timestamp.slice(0, -3)
+
 
 //add time since tweet to tweet using above for loops
 
 userss = { user1, user2 };
 
-console.log(userss);
+var allTweets = [];
+
+for (let user in userss) {
+    for (let tweet of userss[user].tweets) {
+        tweet["user"] = user;
+        tweet['daysSince'] = (new Date() - Date.parse(tweet.timestamp)) / 86400000;
+        allTweets.push(tweet);
+    }
+}
 
 var container = document.getElementById('container');
 
-var countOfTweets = 0;
+// code used to find time logic to use
+// console.log(new Date(), Date.parse(user1.tweets[0].timestamp), Math.round((new Date() - Date.parse(user1.tweets[0].timestamp)) / 86400000));
+
+// reorder array based on above logic
+
+allTweets.sort((a, b) => a.daysSince - b.daysSince);
 
 
 
-var allTweets = [];
 
-for (const user in userss) {
-    for (const tweet in userss[user].tweets) {
-        countOfTweets++;
-        allTweets.push(userss[user].tweets[tweet]);
-        // allTweets.push(tweet, tweet);
+for (const oneTweet of allTweets) {
 
-        // console.log(currTweet.text);
-        let tweetCode = document.createElement('section');
-        tweetCode.setAttribute('class', 'indiv-tweets')
-        tweetCode.innerHTML =
-            `
-            <img id="profile-image" src="${userss[user].avatarURL}" alt="profile image">
-            <section class="text-of-tweet">
-                <span>
-                    <span> <h4>${userss[user].displayName} ✔️</h4> <h6>${userss[user].userName}</h6><h5> </h5> </span> <span>...</span>
-                </span>
+    // console.log(currTweet.text);
+    let tweetCode = document.createElement('section');
+    tweetCode.setAttribute('class', 'indiv-tweets')
+    tweetCode.innerHTML =
+        `
+        <img id="profile-image" src="${userss[oneTweet.user].avatarURL}" alt="profile image">
+        <section class="text-of-tweet">
+            <span>
+                <span> <h4>${userss[oneTweet.user].displayName} ✔️</h4> <h6>${userss[oneTweet.user].userName}</h6><h6> ${Math.round(oneTweet.daysSince)} d </h6> </span> <span>...</span>
+            </span>
 
-                <p>${userss[user].tweets[tweet].text}</p>
-                <span>
-                    <p> 💬 5.5k </p>
-                    <p> 💬 5.5k </p>
-                    <p> 💬 5.5k</p>
-                    <p> 🔗 </p>
-                </span>
-            </section>
-            `
-        container.appendChild(tweetCode);
-    }
+            <p>${oneTweet.text}</p>
+            <span>
+                <p> 💬 5.5k </p>
+                <p> 💬 5.5k </p>
+                <p> 💬 5.5k</p>
+                <p> 🔗 </p>
+            </span>
+        </section>
+        `
+    container.appendChild(tweetCode);
 }
+
+
+
+
+
+
+
+//THIS CODE WORKS BUT WITHOUT TIME LOGIC. WILL REFACTOR TO USE SORTED ARRAY OF TWEETS
+
+// for (const user in userss) {
+//     for (const tweet in userss[user].tweets) {
+//         allTweets.push(userss[user].tweets[tweet]);
+//         // allTweets.push(tweet, tweet);
+
+//         // console.log(currTweet.text);
+//         let tweetCode = document.createElement('section');
+//         tweetCode.setAttribute('class', 'indiv-tweets')
+//         tweetCode.innerHTML =
+//             `
+//             <img id="profile-image" src="${userss[user].avatarURL}" alt="profile image">
+//             <section class="text-of-tweet">
+//                 <span>
+//                     <span> <h4>${userss[user].displayName} ✔️</h4> <h6>${userss[user].userName}</h6><h5> </h5> </span> <span>...</span>
+//                 </span>
+
+//                 <p>${userss[user].tweets[tweet].text}</p>
+//                 <span>
+//                     <p> 💬 5.5k </p>
+//                     <p> 💬 5.5k </p>
+//                     <p> 💬 5.5k</p>
+//                     <p> 🔗 </p>
+//                 </span>
+//             </section>
+//             `
+//         container.appendChild(tweetCode);
+//     }
+// }
 
 //attempted code for time and adding key/value to tweets
 //tweet.ago = Date.now() - Date.parse(userss[user].tweets[tweet].timestamp);
 
-
-console.log(countOfTweets);
-console.log(allTweets);
 
 //take old code that was used in profile page rendering and use it here
 // for (const tweet of tweets) {
