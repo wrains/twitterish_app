@@ -103,7 +103,7 @@ const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 
 //assigns and converts from string into varaible that matches the already declared variable
-var currUser = eval(params['user']);
+var currUser = eval(params['user']) || userss.user1;
 
 var currObj = userss[currUser];
 console.log(currObj);
